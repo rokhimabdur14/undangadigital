@@ -33,6 +33,7 @@
             background-image: radial-gradient(var(--maroon-light) 0.5px, transparent 0.5px);
             background-size: 20px 20px;
             opacity: 0.98;
+            overflow-x: hidden;
         }
 
         .container {
@@ -50,6 +51,16 @@
             font-family: 'Caveat', cursive;
         }
 
+        /* Parallax Floating Elements */
+        .parallax-doodle {
+            position: absolute;
+            color: var(--maroon-sketch);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+            transition: transform 0.1s ease-out;
+        }
+
         .sketch-frame {
             border: 3px solid var(--maroon-sketch);
             border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -58,11 +69,15 @@
             background: #FFFDF5;
             box-shadow: 4px 4px 0px var(--maroon-sketch);
             position: relative;
+            z-index: 2;
+            transition: transform 0.2s ease-out;
         }
 
         .hero {
             text-align: center;
             padding: 30px 15px 10px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-subtitle {
@@ -82,6 +97,7 @@
             justify-content: center;
             gap: 15px;
             margin: 15px 0;
+            perspective: 1000px;
         }
 
         .photo-box {
@@ -92,12 +108,16 @@
             overflow: hidden;
             background: #FFF;
             box-shadow: 3px 3px 0px var(--maroon-sketch);
+            transition: transform 0.15s ease-out;
+            will-change: transform;
         }
 
         .photo-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top center;
+            transform: scale(1.15);
         }
 
         .sketch-doodle {
@@ -196,18 +216,23 @@
 <body>
 
     <div class="container">
+        <!-- Parallax Floating Background Icons -->
+        <i class="fa-solid fa-heart parallax-doodle" style="top: 100px; left: 20px; font-size: 2.5rem;" data-speed="0.15"></i>
+        <i class="fa-solid fa-star parallax-doodle" style="top: 250px; right: 25px; font-size: 2rem;" data-speed="-0.2"></i>
+        <i class="fa-solid fa-cloud parallax-doodle" style="top: 500px; left: 15px; font-size: 3rem;" data-speed="0.25"></i>
+        <i class="fa-solid fa-mug-hot parallax-doodle" style="top: 800px; right: 20px; font-size: 2.5rem;" data-speed="-0.15"></i>
         
         <!-- Header Section -->
         <div class="hero">
             <p class="hero-subtitle">Kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami :</p>
             <h1 class="hero-title">Ayu & Abdur</h1>
             
-            <!-- Foto Pasangan (Urutan: Ayu dulu, baru Abdur) -->
+            <!-- Foto Pasangan dengan Efek Parallax -->
             <div class="photo-container">
-                <div class="photo-box">
+                <div class="photo-box parallax-item" data-speed="0.08">
                     <img src="https://lh3.googleusercontent.com/d/1NbzyhD1VRb41TzGrgy_EeaDb-IBw1cp8" alt="Ayu Kecil">
                 </div>
-                <div class="photo-box">
+                <div class="photo-box parallax-item" data-speed="-0.08">
                     <img src="https://lh3.googleusercontent.com/d/1nEv4gPLs_R0XCh7yJTQ_4wr0Zo2NisN6" alt="Abdur Kecil">
                 </div>
             </div>
@@ -225,7 +250,7 @@
             <p style="font-weight: bold; color: var(--maroon-sketch); margin-top: 5px;">(QS. Ar-Rum: 21)</p>
         </div>
 
-        <!-- Section Mempelai (Wanita di atas, Pria di bawah) -->
+        <!-- Section Mempelai -->
         <div class="sketch-frame" style="text-align: center;">
             <h2 class="mempelai-title">Mempelai</h2>
             
@@ -310,6 +335,19 @@
     </audio>
 
     <script>
+        /* Parallax Scroll Effect */
+        window.addEventListener('scroll', function() {
+            var scrolled = window.pageYOffset;
+            
+            // Parallax untuk elemen foto & doodle
+            var parallaxItems = document.querySelectorAll('.parallax-item, .parallax-doodle');
+            parallaxItems.forEach(function(item) {
+                var speed = item.getAttribute('data-speed');
+                item.style.transform = 'translateY(' + (scrolled * speed) + 'px)';
+            });
+        });
+
+        /* Audio Player Control */
         var music = document.getElementById("bg-music");
         var musicIcon = document.getElementById("music-icon");
         var isPlaying = false;
