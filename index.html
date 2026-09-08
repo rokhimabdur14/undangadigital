@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Abdur & Ayu</title>
+    <!-- Google Fonts Handwritten & Casual Sketch Style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-cream: #FFF9E6;
+            --maroon-sketch: #8B0000;
+            --maroon-light: #A52A2A;
+            --card-border: #8B0000;
+            --text-dark: #332222;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.5;
+            background-image: radial-gradient(var(--maroon-light) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            opacity: 0.98;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: var(--bg-cream);
+            min-height: 100vh;
+            border-left: 2px dashed var(--maroon-sketch);
+            border-right: 2px dashed var(--maroon-sketch);
+            padding-bottom: 60px;
+            position: relative;
+        }
+
+        /* Handwritten Titles */
+        h1, h2, h3, .font-hand {
+            font-family: 'Caveat', cursive;
+        }
+
+        /* Sketch Frame Style */
+        .sketch-frame {
+            border: 3px solid var(--maroon-sketch);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding: 15px;
+            margin: 20px;
+            background: #FFFDF5;
+            box-shadow: 4px 4px 0px var(--maroon-sketch);
+            position: relative;
+        }
+
+        /* Header / Hero */
+        .hero {
+            text-align: center;
+            padding: 30px 15px 10px;
+        }
+
+        .hero-subtitle {
+            color: var(--maroon-sketch);
+            font-size: 1.2rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            color: var(--maroon-sketch);
+            margin: 5px 0;
+            line-height: 1;
+        }
+
+        /* Photo Sketch Box */
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .photo-box {
+            width: 140px;
+            height: 180px;
+            border: 3px solid var(--maroon-sketch);
+            border-radius: 120px 15px 100px 15px/15px 100px 15px 120px;
+            overflow: hidden;
+            background: #FFF;
+            box-shadow: 3px 3px 0px var(--maroon-sketch);
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sketch Icons / Illustrations */
+        .sketch-doodle {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--maroon-sketch);
+            margin: 10px 0;
+        }
+
+        /* Couple Section */
+        .mempelai-title {
+            font-size: 2rem;
+            color: var(--maroon-sketch);
+            text-align: center;
+        }
+
+        .mempelai-name {
+            font-size: 1.6rem;
+            color: var(--maroon-sketch);
+            font-weight: bold;
+        }
+
+        /* Event Details */
+        .event-card {
+            border: 2px solid var(--maroon-sketch);
+            border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #FFFDF8;
+        }
+
+        .event-title {
+            font-size: 1.8rem;
+            color: var(--maroon-sketch);
+            border-bottom: 2px dashed var(--maroon-sketch);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .btn-sketch {
+            display: inline-block;
+            background: var(--bg-cream);
+            color: var(--maroon-sketch);
+            border: 2px solid var(--maroon-sketch);
+            border-radius: 20px;
+            padding: 8px 18px;
+            text-decoration: none;
+            font-family: 'Patrick Hand', cursive;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            box-shadow: 2px 2px 0px var(--maroon-sketch);
+            transition: all 0.2s;
+        }
+
+        .btn-sketch:active {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+
+        /* Notice / Himbauan */
+        .notice-box {
+            border: 2px dashed var(--maroon-sketch);
+            background: #FFF5F5;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            text-align: center;
+            color: var(--maroon-sketch);
+        }
+
+        /* Bank Account */
+        .bank-box {
+            border: 2px solid var(--maroon-sketch);
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            background: #FFF;
+        }
+
+        /* Music Floating Button */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-cream);
+            color: var(--maroon-sketch);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--maroon-sketch);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 0px var(--maroon-sketch);
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header Section -->
+        <div class="hero">
+            <p class="hero-subtitle">Kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan kami :</p>
+            <h1 class="hero-title">Abdur & Ayu</h1>
+            
+            <!-- Foto Kecil Pasangan (Simpan foto di folder project dengan nama abdur.jpg & ayu.jpg) -->
+            <div class="photo-container">
+                <div class="photo-box">
+                    <img src="abdur.jpg" alt="Abdur Kecil" onerror="this.src='https://via.placeholder.com/140x180/8B0000/FFFFFF?text=Foto+Abdur'">
+                </div>
+                <div class="photo-box">
+                    <img src="ayu.jpg" alt="Ayu Kecil" onerror="this.src='https://via.placeholder.com/140x180/8B0000/FFFFFF?text=Foto+Ayu'">
+                </div>
+            </div>
+
+            <div class="sketch-doodle">
+                <i class="fa-solid fa-mug-hot"></i> &nbsp; <i class="fa-solid fa-heart"></i>
+            </div>
+        </div>
+
+        <!-- Section Surah Ar-Rum -->
+        <div class="sketch-frame" style="text-align: center;">
+            <p style="font-size: 1rem; font-style: italic;">
+                "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya..."
+            </p>
+            <p style="font-weight: bold; color: var(--maroon-sketch); margin-top: 5px;">(QS. Ar-Rum: 21)</p>
+        </div>
+
+        <!-- Section Mempelai -->
+        <div class="sketch-frame" style="text-align: center;">
+            <h2 class="mempelai-title">Mempelai</h2>
+            
+            <div style="margin: 15px 0;">
+                <p class="mempelai-name">ABDUR ROKHIM AL FIRDZOS, S.M.</p>
+                <p><b>(ABDUR)</b></p>
+                <p style="font-size: 0.95rem; color: #555;">Putra dari Bapak Walijo & Ibu Siti Jariyah</p>
+            </div>
+
+            <div style="font-size: 1.8rem; color: var(--maroon-sketch); margin: 10px 0;">&</div>
+
+            <div style="margin: 15px 0;">
+                <p class="mempelai-name">Ayu Uswatun Hasanah, A.Md.O.T.</p>
+                <p><b>(AYU)</b></p>
+                <p style="font-size: 0.95rem; color: #555;">Putri dari Bapak Suripto, S.Pd. & Ibu Maryani</p>
+            </div>
+        </div>
+
+        <!-- Section Acara 1: Boyong Manten -->
+        <div class="sketch-frame">
+            <div class="event-card">
+                <h3 class="event-title"><i class="fa-solid fa-ring"></i> Boyong Manten</h3>
+                <p><b>Hari/Tanggal:</b> Minggu, 4 April 2027</p>
+                <p><b>Akad Nikah:</b> 08.00 WIB</p>
+                <p><b>Resepsi:</b> 10.00 WIB</p>
+                <p style="margin-top: 5px;"><b>Lokasi:</b> Dusun Tempel, Desa Borangan, Kecamatan Manisrenggo, Kabupaten Klaten</p>
+                
+                <a href="https://maps.app.goo.gl/uyVQ7JYcQEYCk7EB7" target="_blank" class="btn-sketch">
+                    <i class="fa-solid fa-location-dot"></i> Google Maps
+                </a>
+            </div>
+
+            <!-- Section Acara 2: Ngunduh Mantu -->
+            <div class="event-card" style="margin-bottom: 0;">
+                <h3 class="event-title"><i class="fa-solid fa-house-heart"></i> Ngunduh Mantu</h3>
+                <p><b>Hari/Tanggal:</b> Minggu, 11 April 2027</p>
+                <p><b>Waktu:</b> 10.00 WIB</p>
+                <p style="margin-top: 5px;"><b>Lokasi:</b> GOR Setjo Menggolo (Dusun Karangmojo RW 03, Desa Kecemen, Kecamatan Manisrenggo, Kabupaten Klaten)</p>
+                
+                <a href="https://maps.app.goo.gl/wvKpshwDacUWKrNy9" target="_blank" class="btn-sketch">
+                    <i class="fa-solid fa-location-dot"></i> Google Maps
+                </a>
+            </div>
+        </div>
+
+        <!-- Himbauan Khusus -->
+        <div class="sketch-frame">
+            <div class="notice-box">
+                <i class="fa-solid fa-circle-exclamation fa-lg"></i><br><br>
+                Mohon maaf, tanpa mengurangi rasa hormat, kami dari pihak keluarga pria hanya menerima silaturahmi dan sumbangan pada <b>HARI H Ngunduh Mantu</b>.<br><br>
+                Terima kasih atas pengertian dan doa restunya.
+            </div>
+        </div>
+
+        <!-- Amplop Digital -->
+        <div class="sketch-frame" style="text-align: center;">
+            <h2 class="mempelai-title">Amplop Digital</h2>
+            <p style="font-size: 0.95rem; margin-bottom: 10px;">Doa Restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi hadiah, dapat disalurkan melalui:</p>
+            
+            <div class="bank-box">
+                <p><b>Bank BNI</b></p>
+                <p>A/N: ABDUR ROKHIM AL FIRDZOS</p>
+            </div>
+
+            <div class="bank-box">
+                <p><b>Bank Mandiri</b></p>
+                <p>No. Rek: <b>1380017172391</b></p>
+                <p>A/N: AYU USWATUN HASANAH</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Floating Audio Button -->
+    <div class="music-btn" onclick="toggleMusic()">
+        <i class="fa-solid fa-music" id="music-icon"></i>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        var music = document.getElementById("bg-music");
+        var musicIcon = document.getElementById("music-icon");
+        var isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.classList.remove("fa-pause");
+                musicIcon.classList.add("fa-music");
+            } else {
+                music.play();
+                musicIcon.classList.remove("fa-music");
+                musicIcon.classList.add("fa-pause");
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>
