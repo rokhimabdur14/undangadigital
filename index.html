@@ -44,26 +44,50 @@
             border-right: 2px dashed var(--maroon-sketch);
             padding-bottom: 40px;
             position: relative;
+            perspective: 1000px;
         }
 
         h1, h2, h3 {
             font-family: 'Caveat', cursive;
         }
 
-        /* Slide Control */
+        /* Floating Parallax Doodles */
+        .parallax-doodle {
+            position: absolute;
+            color: var(--maroon-sketch);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+            animation: float 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(8deg); }
+        }
+
+        /* Slide Control with Parallax Transition */
         .slide {
             display: none;
             padding: 25px 15px;
-            animation: fadeIn 0.8s ease-in-out forwards;
+            position: relative;
+            z-index: 2;
         }
 
         .slide.active {
             display: block;
+            animation: slideParallaxIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideParallaxIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         /* Frame Style */
@@ -76,6 +100,11 @@
             box-shadow: 4px 4px 0px var(--maroon-sketch);
             position: relative;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .sketch-frame:hover {
+            transform: translateY(-3px);
         }
 
         /* Ribbon Ornament */
@@ -101,6 +130,11 @@
             overflow: hidden;
             background: #FFF;
             box-shadow: 3px 3px 0px var(--maroon-sketch);
+            transition: transform 0.4s ease;
+        }
+
+        .photo-box:hover {
+            transform: scale(1.05) rotate(-2deg);
         }
 
         .photo-box img {
@@ -227,6 +261,11 @@
 <body>
 
     <div class="container">
+        <!-- Parallax Background Floating Elements -->
+        <i class="fa-solid fa-heart parallax-doodle" style="top: 40px; left: 20px; font-size: 2.2rem; animation-delay: 0s;"></i>
+        <i class="fa-solid fa-star parallax-doodle" style="top: 180px; right: 25px; font-size: 1.8rem; animation-delay: 1s;"></i>
+        <i class="fa-solid fa-cloud parallax-doodle" style="top: 400px; left: 15px; font-size: 2.5rem; animation-delay: 0.5s;"></i>
+        <i class="fa-solid fa-mug-hot parallax-doodle" style="top: 650px; right: 20px; font-size: 2rem; animation-delay: 1.5s;"></i>
 
         <!-- ================= SLIDE 1: COVER ================= -->
         <div class="slide active" id="slide-1">
@@ -419,7 +458,7 @@
         <i class="fa-solid fa-music" id="music-icon"></i>
     </div>
 
-    <!-- Audio Player: Instrumental Piano Romantic (Romantic Relaxing Piano) -->
+    <!-- Audio Player: Instrumental Piano Romantic -->
     <audio id="bg-music" loop>
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
     </audio>
@@ -431,7 +470,6 @@
             document.getElementById('slide-' + slideNumber).classList.add('active');
             window.scrollTo(0, 0);
 
-            // Memutar musik otomatis saat tombol Open Invitation diklik
             if(slideNumber === 2 && !isPlaying) {
                 toggleMusic();
             }
