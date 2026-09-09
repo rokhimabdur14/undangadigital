@@ -50,7 +50,6 @@
             font-family: 'Caveat', cursive;
         }
 
-        /* Slide Control */
         .slide {
             display: none;
             padding: 20px 12px;
@@ -68,7 +67,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Frame Style */
         .sketch-frame {
             border: 3px solid var(--maroon-sketch);
             border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -80,7 +78,6 @@
             text-align: center;
         }
 
-        /* Envelope Cover Slide 1 */
         .envelope-box {
             width: 200px;
             height: 150px;
@@ -112,7 +109,6 @@
             line-height: 1.1;
         }
 
-        /* Slide 2: Heart & Bride/Groom Sketch Illustration */
         .heart-illustration-wrapper {
             position: relative;
             width: 260px;
@@ -135,13 +131,12 @@
             z-index: 3;
             font-family: 'Caveat', cursive;
             font-size: 2.3rem;
-            color: var(--maroon-sketch);
+            color: #FFFDF5;
             line-height: 1;
             text-align: center;
             font-weight: bold;
         }
 
-        /* Couple Sketch Icons beside heart */
         .sketch-groom {
             position: absolute;
             left: 0;
@@ -160,7 +155,6 @@
             z-index: 2;
         }
 
-        /* Slide 3: Oval Frame Layout */
         .oval-mempelai-card {
             display: flex;
             align-items: center;
@@ -187,7 +181,6 @@
             object-position: top center;
         }
 
-        /* Buttons */
         .btn-sketch {
             display: inline-block;
             background: #FFFDF5;
@@ -217,7 +210,6 @@
             padding: 0 5px;
         }
 
-        /* Event & Forms */
         .event-card {
             border: 2px solid var(--maroon-sketch);
             border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
@@ -301,7 +293,7 @@
 
     <div class="container">
 
-        <!-- ================= SLIDE 1: COVER AMPLOP ================= -->
+        <!-- SLIDE 1: COVER -->
         <div class="slide active" id="slide-1">
             <div class="sketch-frame" style="padding-top: 35px; padding-bottom: 25px;">
                 <div class="envelope-box">
@@ -323,26 +315,22 @@
             </div>
         </div>
 
-        <!-- ================= SLIDE 2: SKETSA LOVE & PENGANTIN ================= -->
+        <!-- SLIDE 2: WE'RE GETTING MARRIED -->
         <div class="slide" id="slide-2">
             <div class="sketch-frame" style="padding: 25px 15px;">
                 <p style="font-size: 1.2rem; color: var(--maroon-sketch); text-transform: uppercase; letter-spacing: 2px;">We're Getting Married</p>
                 
-                <!-- Ilustrasi Hati & Pasangan -->
                 <div class="heart-illustration-wrapper">
-                    <!-- Icon Pengantin Laki-laki -->
                     <div class="sketch-groom"><i class="fa-solid fa-user-tie"></i></div>
                     
-                    <!-- SVG Hati Presisi Red Velvet -->
                     <svg class="heart-svg" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M23.6 0C21.1 0 18.8 1.2 17.3 3.1C15.8 1.2 13.5 0 11 0C4.9 0 0 4.9 0 11C0 18.2 15.3 27.5 16.5 28.2C16.8 28.4 17.1 28.5 17.3 28.5C17.6 28.5 17.9 28.4 18.1 28.2C19.3 27.5 34.6 18.2 34.6 11C34.6 4.9 29.7 0 23.6 0Z" fill="#8B0000"/>
                     </svg>
                     
-                    <div class="heart-inner-text" style="color: #FFFDF5;">
+                    <div class="heart-inner-text">
                         Ayu<br>&<br>Abdur
                     </div>
 
-                    <!-- Icon Pengantin Perempuan -->
                     <div class="sketch-bride"><i class="fa-solid fa-user-nurse"></i></div>
                 </div>
 
@@ -357,16 +345,16 @@
             </div>
         </div>
 
-        <!-- ================= SLIDE 3: FOTO MEMPELAI TERBARU ================= -->
+        <!-- SLIDE 3: MEMPELAI (MEMANGGIL FOTO SENSUS GITHUB) -->
         <div class="slide" id="slide-3">
             <div class="sketch-frame">
                 <p style="font-size: 0.85rem; color: #666; font-style: italic; margin-bottom: 5px;">Please turn on the music for the best experience</p>
                 <h2 style="font-size: 2.2rem; color: var(--maroon-sketch); margin-bottom: 15px;">The Bride and Groom</h2>
                 
-                <!-- Mempelai Wanita (Ayu Terbaru) -->
+                <!-- Mempelai Wanita (Ayu) -->
                 <div class="oval-mempelai-card">
                     <div class="oval-frame">
-                        <img src="https://lh3.googleusercontent.com/d/1NbzyhD1VRb41TzGrgy_EeaDb-IBw1cp8" alt="Ayu Uswatun Hasanah">
+                        <img src="ayu.png" onerror="this.onerror=null; this.src='ayu.jpg';" alt="Ayu Uswatun Hasanah">
                     </div>
                     <div>
                         <p style="font-size: 1.35rem; color: var(--maroon-sketch); font-weight: bold; line-height: 1.1;">Ayu Uswatun Hasanah, A.Md.Kes.</p>
@@ -376,10 +364,10 @@
 
                 <div style="text-align: center; font-size: 1.6rem; color: var(--maroon-sketch); margin: 2px 0;">&</div>
 
-                <!-- Mempelai Pria (Abdur Terbaru) -->
+                <!-- Mempelai Pria (Abdur) -->
                 <div class="oval-mempelai-card" style="flex-direction: row-reverse; text-align: right;">
                     <div class="oval-frame">
-                        <img src="https://lh3.googleusercontent.com/d/1nEv4gPLs_R0XCh7yJTQ_4wr0Zo2NisN6" alt="Abdur Rokhim Al Firdzos">
+                        <img src="abdur.png" onerror="this.onerror=null; this.src='abdur.jpg';" alt="Abdur Rokhim Al Firdzos">
                     </div>
                     <div>
                         <p style="font-size: 1.35rem; color: var(--maroon-sketch); font-weight: bold; line-height: 1.1;">ABDUR ROKHIM AL FIRDZOS, S.M.</p>
@@ -395,7 +383,7 @@
             </div>
         </div>
 
-        <!-- ================= SLIDE 4: AYAT AR-RUM & ACARA ================= -->
+        <!-- SLIDE 4: AYAT & RANGKAIAN ACARA -->
         <div class="slide" id="slide-4">
             <div class="sketch-frame" style="padding: 15px;">
                 <p style="font-size: 1rem; font-style: italic; line-height: 1.4;">
@@ -405,7 +393,6 @@
             </div>
 
             <div class="sketch-frame">
-                <!-- Boyong Manten -->
                 <div class="event-card">
                     <h3 class="event-title"><i class="fa-solid fa-ring"></i> Boyong Manten</h3>
                     <p><b>Hari/Tanggal:</b> Minggu, 4 April 2027</p>
@@ -418,7 +405,6 @@
                     </a>
                 </div>
 
-                <!-- Ngunduh Mantu -->
                 <div class="event-card" style="margin-bottom: 0;">
                     <h3 class="event-title"><i class="fa-solid fa-house-heart"></i> Ngunduh Mantu</h3>
                     <p><b>Hari/Tanggal:</b> Minggu, 11 April 2027</p>
@@ -444,7 +430,7 @@
             </div>
         </div>
 
-        <!-- ================= SLIDE 5: RSVP & AMPLOP DIGITAL ================= -->
+        <!-- SLIDE 5: RSVP & HADIAH -->
         <div class="slide" id="slide-5">
             <div class="sketch-frame">
                 <h2 style="font-size: 2rem; color: var(--maroon-sketch);">Konfirmasi Kehadiran</h2>
@@ -511,7 +497,7 @@
 
     </div>
 
-    <!-- Music Controls -->
+    <!-- Music Control -->
     <div class="music-btn" onclick="toggleMusic()">
         <i class="fa-solid fa-music" id="music-icon"></i>
     </div>
