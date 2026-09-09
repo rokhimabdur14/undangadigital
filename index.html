@@ -50,22 +50,20 @@
             font-family: 'Caveat', cursive;
         }
 
-        /* Slide Animation */
+        /* Slide Control */
         .slide {
             display: none;
             padding: 25px 15px;
-            position: relative;
-            z-index: 2;
+            animation: fadeIn 0.8s ease-in-out forwards;
         }
 
         .slide.active {
             display: block;
-            animation: slideIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Frame Style */
@@ -80,90 +78,37 @@
             text-align: center;
         }
 
-        /* Slide 1 Envelope Illustration */
-        .envelope-box {
-            width: 220px;
-            height: 170px;
-            border: 3px solid var(--maroon-sketch);
-            margin: 30px auto 20px;
-            position: relative;
-            background: #FFFDF5;
-            border-radius: 10px;
-            box-shadow: 4px 4px 0px var(--maroon-sketch);
-        }
-
-        .envelope-flap {
-            position: absolute;
-            top: -50px;
-            left: -3px;
-            width: 220px;
-            height: 80px;
-            border: 3px solid var(--maroon-sketch);
-            border-bottom: none;
-            background: var(--bg-cream);
-            clip-path: polygon(0 100%, 50% 0, 100% 100%);
-        }
-
-        .envelope-text {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
+        /* Ribbon Ornament */
+        .ribbon-doodle {
+            font-size: 2.2rem;
             color: var(--maroon-sketch);
-            padding-top: 45px;
-            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
-        /* Slide 2 Heart Sketch Illustration */
-        .heart-sketch-container {
-            position: relative;
-            width: 240px;
-            height: 240px;
-            margin: 20px auto;
+        /* Photo Cover Box */
+        .photo-container {
             display: flex;
-            align-items: center;
             justify-content: center;
-        }
-
-        .heart-outline {
-            position: absolute;
-            font-size: 12rem;
-            color: var(--maroon-sketch);
-            z-index: 1;
-        }
-
-        .heart-text {
-            position: relative;
-            z-index: 2;
-            font-family: 'Caveat', cursive;
-            font-size: 2.5rem;
-            color: var(--maroon-sketch);
-            line-height: 1;
-        }
-
-        /* Slide 3 Layout Bride & Groom */
-        .bg-card-row {
-            display: flex;
-            align-items: center;
+            gap: 15px;
             margin: 20px 0;
-            text-align: left;
-            gap: 12px;
         }
 
-        .oval-photo {
-            width: 120px;
-            height: 150px;
+        .photo-box {
+            width: 140px;
+            height: 180px;
             border: 3px solid var(--maroon-sketch);
-            border-radius: 50%;
+            border-radius: 120px 15px 100px 15px/15px 100px 15px 120px;
             overflow: hidden;
-            flex-shrink: 0;
-            box-shadow: 3px 3px 0px var(--maroon-sketch);
             background: #FFF;
+            box-shadow: 3px 3px 0px var(--maroon-sketch);
         }
 
-        .oval-photo img {
+        .photo-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: top center;
+            transform: scale(1.15);
         }
 
         /* Buttons */
@@ -173,11 +118,11 @@
             color: var(--maroon-sketch);
             border: 2px solid var(--maroon-sketch);
             border-radius: 25px;
-            padding: 8px 22px;
+            padding: 10px 24px;
             text-decoration: none;
             font-family: 'Caveat', cursive;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-top: 15px;
             box-shadow: 3px 3px 0px var(--maroon-sketch);
             cursor: pointer;
@@ -196,7 +141,7 @@
             padding: 0 10px;
         }
 
-        /* Event Cards & Form */
+        /* Event Cards */
         .event-card {
             border: 2px solid var(--maroon-sketch);
             border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
@@ -215,6 +160,7 @@
             text-align: center;
         }
 
+        /* Form Inputs */
         .form-group {
             margin-bottom: 12px;
             text-align: left;
@@ -237,6 +183,7 @@
             background: #FFF;
         }
 
+        /* Copy Bank Button */
         .bank-box {
             border: 2px solid var(--maroon-sketch);
             padding: 12px;
@@ -257,6 +204,7 @@
             margin-top: 5px;
         }
 
+        /* Music Floating Button */
         .music-btn {
             position: fixed;
             bottom: 20px;
@@ -280,103 +228,81 @@
 
     <div class="container">
 
-        <!-- ================= SLIDE 1: COVER AMPLOP ================= -->
+        <!-- ================= SLIDE 1: COVER ================= -->
         <div class="slide active" id="slide-1">
-            <div class="sketch-frame" style="padding-top: 40px; padding-bottom: 30px;">
+            <div class="sketch-frame" style="padding-top: 30px;">
+                <div class="ribbon-doodle">
+                    <i class="fa-solid fa-ribbon"></i>
+                </div>
                 
-                <!-- Sketsa Amplop Terbuka -->
-                <div class="envelope-box">
-                    <div class="envelope-flap"></div>
-                    <div class="envelope-text">
-                        You are invited<br>to our wedding!
+                <p style="font-size: 1.3rem; color: var(--maroon-sketch);">THESE COUPLE ARE</p>
+                <h1 style="font-size: 3.2rem; color: var(--maroon-sketch); line-height: 1.1;">Getting Married!</h1>
+                <p style="font-weight: bold; margin-top: 5px; letter-spacing: 2px;">04 . 04 . 2027</p>
+
+                <!-- Foto Pasangan -->
+                <div class="photo-container">
+                    <div class="photo-box">
+                        <img src="https://lh3.googleusercontent.com/d/1NbzyhD1VRb41TzGrgy_EeaDb-IBw1cp8" alt="Ayu Kecil">
+                    </div>
+                    <div class="photo-box">
+                        <img src="https://lh3.googleusercontent.com/d/1nEv4gPLs_R0XCh7yJTQ_4wr0Zo2NisN6" alt="Abdur Kecil">
                     </div>
                 </div>
 
-                <p style="font-size: 1.3rem; color: var(--maroon-sketch); margin-top: 15px;">Ayu & Abdur</p>
-                <p style="font-weight: bold; letter-spacing: 2px; margin-bottom: 10px;">04 . 04 . 2027</p>
-
-                <p style="font-size: 1.1rem; margin-top: 10px; color: #555;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-                <h3 style="font-size: 1.8rem; color: var(--maroon-sketch); margin-bottom: 15px;">Nama Tamu</h3>
+                <h2 style="font-size: 2.5rem; color: var(--maroon-sketch); margin-bottom: 10px;">Ayu & Abdur</h2>
 
                 <button class="btn-sketch" onclick="nextSlide(2)">
-                    <i class="fa-solid fa-envelope"></i> Open Invitation
+                    OPEN INVITATION <i class="fa-solid fa-envelope-open"></i>
                 </button>
             </div>
         </div>
 
-        <!-- ================= SLIDE 2: SKETSA LOVE (WE'RE GETTING MARRIED) ================= -->
+        <!-- ================= SLIDE 2: AYAT AR-RUM SAJA ================= -->
         <div class="slide" id="slide-2">
-            <div class="sketch-frame" style="padding: 30px 15px;">
-                <p style="font-size: 1.2rem; color: var(--maroon-sketch); text-transform: uppercase; letter-spacing: 2px;">We're Getting Married</p>
-                
-                <!-- Sketsa Love & Nama -->
-                <div class="heart-sketch-container">
-                    <i class="fa-regular fa-heart heart-outline"></i>
-                    <div class="heart-text">
-                        Ayu<br>&<br>Abdur
-                    </div>
+            <div class="sketch-frame" style="padding: 40px 20px; margin-top: 80px;">
+                <div style="font-size: 2rem; color: var(--maroon-sketch); margin-bottom: 15px;">
+                    <i class="fa-solid fa-heart"></i>
                 </div>
-
-                <p style="font-size: 1.3rem; color: var(--maroon-sketch); margin-top: 10px;">
-                    Are getting married on
+                <p style="font-size: 1.25rem; font-style: italic; line-height: 1.6;">
+                    "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya..."
                 </p>
-                <p style="font-size: 1.8rem; font-weight: bold; color: var(--maroon-sketch);">04 . 04 . 2027</p>
+                <p style="font-weight: bold; font-size: 1.4rem; color: var(--maroon-sketch); margin-top: 15px;">(QS. Ar-Rum: 21)</p>
+            </div>
 
-                <button class="btn-sketch" onclick="nextSlide(3)">
-                    Lihat Mempelai <i class="fa-solid fa-arrow-right"></i>
-                </button>
+            <div class="btn-nav-container">
+                <button class="btn-sketch" onclick="prevSlide(1)"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                <button class="btn-sketch" onclick="nextSlide(3)">Mempelai <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
 
-        <!-- ================= SLIDE 3: MEMPELAI (SESUAI LAYOUT SLIDE 3 REFERENSI) ================= -->
+        <!-- ================= SLIDE 3: NAMA MEMPELAI ================= -->
         <div class="slide" id="slide-3">
             <div class="sketch-frame">
-                <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-bottom: 10px;">Please turn on the music for the best experience</p>
-                <h2 style="font-size: 2.2rem; color: var(--maroon-sketch); margin-bottom: 20px;">The Bride and Groom</h2>
+                <h2 style="font-size: 2.4rem; color: var(--maroon-sketch);">Mempelai</h2>
                 
-                <!-- Mempelai Wanita (Ayu) -->
-                <div class="bg-card-row">
-                    <div class="oval-photo">
-                        <!-- Menggunakan foto Ayu terbaru -->
-                        <img src="https://lh3.googleusercontent.com/d/1NbzyhD1VRb41TzGrgy_EeaDb-IBw1cp8" alt="Ayu Uswatun Hasanah">
-                    </div>
-                    <div>
-                        <p style="font-size: 1.4rem; color: var(--maroon-sketch); font-weight: bold; line-height: 1.2;">Ayu Uswatun Hasanah, A.Md.Kes.</p>
-                        <p style="font-size: 0.9rem; color: #555; margin-top: 5px;">Putri dari Bapak Suripto, S.Pd. & Ibu Maryani</p>
-                    </div>
+                <div style="margin: 20px 0;">
+                    <p style="font-size: 1.7rem; color: var(--maroon-sketch); font-weight: bold;">Ayu Uswatun Hasanah, A.Md.Kes.</p>
+                    <p style="font-size: 1.2rem;"><b>(AYU)</b></p>
+                    <p style="font-size: 0.95rem; color: #555; margin-top: 5px;">Putri dari Bapak Suripto, S.Pd. & Ibu Maryani</p>
                 </div>
 
-                <div style="text-align: center; font-size: 1.8rem; color: var(--maroon-sketch); margin: 5px 0;">&</div>
+                <div style="font-size: 2rem; color: var(--maroon-sketch); margin: 15px 0;">&</div>
 
-                <!-- Mempelai Pria (Abdur) -->
-                <div class="bg-card-row" style="flex-direction: row-reverse; text-align: right;">
-                    <div class="oval-photo">
-                        <img src="https://lh3.googleusercontent.com/d/1nEv4gPLs_R0XCh7yJTQ_4wr0Zo2NisN6" alt="Abdur Rokhim Al Firdzos">
-                    </div>
-                    <div>
-                        <p style="font-size: 1.4rem; color: var(--maroon-sketch); font-weight: bold; line-height: 1.2;">ABDUR ROKHIM AL FIRDZOS, S.M.</p>
-                        <p style="font-size: 0.9rem; color: #555; margin-top: 5px;">Putra dari Bapak Walijo & Ibu Siti Jariyah</p>
-                    </div>
+                <div style="margin: 20px 0;">
+                    <p style="font-size: 1.7rem; color: var(--maroon-sketch); font-weight: bold;">ABDUR ROKHIM AL FIRDZOS, S.M.</p>
+                    <p style="font-size: 1.2rem;"><b>(ABDUR)</b></p>
+                    <p style="font-size: 0.95rem; color: #555; margin-top: 5px;">Putra dari Bapak Walijo & Ibu Siti Jariyah</p>
                 </div>
-
             </div>
 
             <div class="btn-nav-container">
                 <button class="btn-sketch" onclick="prevSlide(2)"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
-                <button class="btn-sketch" onclick="nextSlide(4)">Ayat & Acara <i class="fa-solid fa-arrow-right"></i></button>
+                <button class="btn-sketch" onclick="nextSlide(4)">Detail Acara <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
 
-        <!-- ================= SLIDE 4: AYAT AR-RUM & DETAIL ACARA ================= -->
+        <!-- ================= SLIDE 4: DETAIL ACARA ================= -->
         <div class="slide" id="slide-4">
-            <!-- Surah Ar-Rum -->
-            <div class="sketch-frame" style="padding: 20px 15px;">
-                <p style="font-size: 1.05rem; font-style: italic; line-height: 1.5;">
-                    "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya..."
-                </p>
-                <p style="font-weight: bold; font-size: 1.2rem; color: var(--maroon-sketch); margin-top: 5px;">(QS. Ar-Rum: 21)</p>
-            </div>
-
             <div class="sketch-frame">
                 <!-- Boyong Manten -->
                 <div class="event-card">
@@ -386,7 +312,7 @@
                     <p><b>Resepsi:</b> 10.00 WIB</p>
                     <p style="margin-top: 5px;"><b>Lokasi:</b> Dusun Tempel, Desa Borangan, Kec. Manisrenggo, Kab. Klaten</p>
                     
-                    <a href="https://maps.app.goo.gl/uyVQ7JYcQEYCk7EB7" target="_blank" class="btn-sketch" style="font-size: 1rem; padding: 5px 15px;">
+                    <a href="https://maps.app.goo.gl/uyVQ7JYcQEYCk7EB7" target="_blank" class="btn-sketch" style="font-size: 1.1rem; padding: 5px 15px;">
                         <i class="fa-solid fa-location-dot"></i> Petunjuk Google Maps
                     </a>
                 </div>
@@ -398,7 +324,7 @@
                     <p><b>Waktu:</b> 10.00 WIB</p>
                     <p style="margin-top: 5px;"><b>Lokasi:</b> GOR Setjo Menggolo (Dusun Karangmojo RW 03, Desa Kecemen, Kec. Manisrenggo, Kab. Klaten)</p>
                     
-                    <a href="https://maps.app.goo.gl/wvKpshwDacUWKrNy9" target="_blank" class="btn-sketch" style="font-size: 1rem; padding: 5px 15px;">
+                    <a href="https://maps.app.goo.gl/wvKpshwDacUWKrNy9" target="_blank" class="btn-sketch" style="font-size: 1.1rem; padding: 5px 15px;">
                         <i class="fa-solid fa-location-dot"></i> Petunjuk Google Maps
                     </a>
                 </div>
@@ -420,7 +346,7 @@
 
         <!-- ================= SLIDE 5: RSVP, AMPLOP DIGITAL & CLOSING ================= -->
         <div class="slide" id="slide-5">
-            <!-- Form RSVP -->
+            <!-- Form Konfirmasi Kehadiran -->
             <div class="sketch-frame">
                 <h2 style="font-size: 2.2rem; color: var(--maroon-sketch);">Konfirmasi Kehadiran</h2>
                 <p style="font-size: 0.95rem; margin-bottom: 12px;">Mohon isi konfirmasi kehadiran Anda di bawah ini:</p>
@@ -493,7 +419,7 @@
         <i class="fa-solid fa-music" id="music-icon"></i>
     </div>
 
-    <!-- Audio Player: Instrumental Piano Romantic -->
+    <!-- Audio Player: Instrumental Piano Romantic (Romantic Relaxing Piano) -->
     <audio id="bg-music" loop>
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
     </audio>
@@ -505,6 +431,7 @@
             document.getElementById('slide-' + slideNumber).classList.add('active');
             window.scrollTo(0, 0);
 
+            // Memutar musik otomatis saat tombol Open Invitation diklik
             if(slideNumber === 2 && !isPlaying) {
                 toggleMusic();
             }
