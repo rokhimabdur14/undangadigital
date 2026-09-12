@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Ngunduh Mantu - Abdur & Ayu</title>
+    <!-- Google Fonts Handwritten & Sketch Style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-cream: #FFF9E6;
+            --maroon-sketch: #8B0000;
+            --maroon-light: #A52A2A;
+            --text-dark: #332222;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            font-size: 1.15rem;
+            line-height: 1.5;
+            background-image: radial-gradient(var(--maroon-light) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: var(--bg-cream);
+            min-height: 100vh;
+            border-left: 2px dashed var(--maroon-sketch);
+            border-right: 2px dashed var(--maroon-sketch);
+            padding-bottom: 40px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Caveat', cursive;
+        }
+
+        /* Floating Parallax Background Elements */
+        .parallax-doodle {
+            position: absolute;
+            color: var(--maroon-sketch);
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 1;
+            animation: float 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(8deg); }
+        }
+
+        /* Slide Control with Parallax Effect */
+        .slide {
+            display: none;
+            padding: 20px 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slide.active {
+            display: block;
+            animation: slideParallaxIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes slideParallaxIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Frame Style */
+        .sketch-frame {
+            border: 3px solid var(--maroon-sketch);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding: 20px 15px;
+            margin: 10px 5px;
+            background: #FFFDF5;
+            box-shadow: 4px 4px 0px var(--maroon-sketch);
+            position: relative;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .sketch-frame:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Envelope Cover Slide 1 */
+        .envelope-box {
+            width: 200px;
+            height: 150px;
+            border: 3px solid var(--maroon-sketch);
+            margin: 25px auto 15px;
+            position: relative;
+            background: #FFFDF5;
+            border-radius: 8px;
+            box-shadow: 3px 3px 0px var(--maroon-sketch);
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: -45px;
+            left: -3px;
+            width: 200px;
+            height: 70px;
+            border: 3px solid var(--maroon-sketch);
+            border-bottom: none;
+            background: var(--bg-cream);
+            clip-path: polygon(0 100%, 50% 0, 100% 100%);
+        }
+
+        .envelope-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1.7rem;
+            color: var(--maroon-sketch);
+            padding-top: 40px;
+            line-height: 1.1;
+        }
+
+        /* Slide 2: Heart & Bride/Groom Sketch Illustration */
+        .heart-illustration-wrapper {
+            position: relative;
+            width: 260px;
+            height: 240px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heart-svg {
+            position: absolute;
+            width: 210px;
+            height: 190px;
+            z-index: 1;
+            filter: drop-shadow(2px 2px 0px var(--maroon-sketch));
+        }
+
+        .heart-inner-text {
+            position: relative;
+            z-index: 3;
+            font-family: 'Caveat', cursive;
+            font-size: 2.3rem;
+            color: #FFFDF5;
+            line-height: 1;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .sketch-groom {
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            font-size: 3.5rem;
+            color: var(--maroon-sketch);
+            z-index: 2;
+        }
+
+        .sketch-bride {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            font-size: 3.5rem;
+            color: var(--maroon-sketch);
+            z-index: 2;
+        }
+
+        /* Slide 3: Oval Frame Layout */
+        .oval-mempelai-card {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            text-align: left;
+            gap: 12px;
+        }
+
+        .oval-frame {
+            width: 120px;
+            height: 150px;
+            border: 3px solid var(--maroon-sketch);
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #FFF;
+            box-shadow: 3px 3px 0px var(--maroon-sketch);
+            transition: transform 0.3s ease;
+        }
+
+        .oval-frame:hover {
+            transform: scale(1.04) rotate(-2deg);
+        }
+
+        .oval-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        /* Buttons */
+        .btn-sketch {
+            display: inline-block;
+            background: #FFFDF5;
+            color: var(--maroon-sketch);
+            border: 2px solid var(--maroon-sketch);
+            border-radius: 25px;
+            padding: 8px 22px;
+            text-decoration: none;
+            font-family: 'Caveat', cursive;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-top: 10px;
+            box-shadow: 3px 3px 0px var(--maroon-sketch);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-sketch:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px var(--maroon-sketch);
+        }
+
+        .btn-nav-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding: 0 5px;
+        }
+
+        /* Event & Forms */
+        .event-card {
+            border: 2px solid var(--maroon-sketch);
+            border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
+            padding: 14px;
+            margin-bottom: 14px;
+            background: #FFFDF8;
+            text-align: left;
+        }
+
+        .event-title {
+            font-size: 1.7rem;
+            color: var(--maroon-sketch);
+            border-bottom: 2px dashed var(--maroon-sketch);
+            padding-bottom: 5px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 3px;
+            font-weight: bold;
+            color: var(--maroon-sketch);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px 10px;
+            border: 2px solid var(--maroon-sketch);
+            border-radius: 8px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1rem;
+            background: #FFF;
+        }
+
+        .bank-box {
+            border: 2px solid var(--maroon-sketch);
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            background: #FFF;
+        }
+
+        .btn-copy {
+            background: var(--maroon-sketch);
+            color: #FFF;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-family: 'Patrick Hand', cursive;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-cream);
+            color: var(--maroon-sketch);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--maroon-sketch);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 0px var(--maroon-sketch);
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Parallax Floating Sketch Elements -->
+        <i class="fa-solid fa-heart parallax-doodle" style="top: 30px; left: 15px; font-size: 2.2rem; animation-delay: 0s;"></i>
+        <i class="fa-solid fa-star parallax-doodle" style="top: 170px; right: 20px; font-size: 1.8rem; animation-delay: 1s;"></i>
+        <i class="fa-solid fa-cloud parallax-doodle" style="top: 380px; left: 15px; font-size: 2.4rem; animation-delay: 0.5s;"></i>
+        <i class="fa-solid fa-mug-hot parallax-doodle" style="top: 620px; right: 20px; font-size: 2rem; animation-delay: 1.5s;"></i>
+        <i class="fa-solid fa-leaf parallax-doodle" style="top: 850px; left: 20px; font-size: 2rem; animation-delay: 0.8s;"></i>
+
+        <!-- ================= SLIDE 1: COVER AMPLOP ================= -->
+        <div class="slide active" id="slide-1">
+            <div class="sketch-frame" style="padding-top: 35px; padding-bottom: 25px;">
+                <div style="font-size: 2rem; color: var(--maroon-sketch); margin-bottom: 5px;">
+                    <i class="fa-solid fa-ribbon"></i>
+                </div>
+
+                <div class="envelope-box">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-text">
+                        You are invited<br>to our wedding!
+                    </div>
+                </div>
+
+                <p style="font-size: 1.3rem; color: var(--maroon-sketch); margin-top: 15px;">Abdur & Ayu</p>
+                <p style="font-weight: bold; letter-spacing: 2px; margin-bottom: 10px;">11 . 04 . 2027</p>
+
+                <p style="font-size: 1.05rem; margin-top: 10px; color: #555;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <h3 style="font-size: 1.8rem; color: var(--maroon-sketch); margin-bottom: 15px;">Nama Tamu</h3>
+
+                <button class="btn-sketch" onclick="nextSlide(2)">
+                    <i class="fa-solid fa-envelope-open"></i> Open Invitation
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= SLIDE 2: WE'RE GETTING MARRIED ================= -->
+        <div class="slide" id="slide-2">
+            <div class="sketch-frame" style="padding: 25px 15px;">
+                <div style="font-size: 1.8rem; color: var(--maroon-sketch); margin-bottom: 5px;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <p style="font-size: 1.2rem; color: var(--maroon-sketch); text-transform: uppercase; letter-spacing: 2px;">We're Getting Married</p>
+                
+                <div class="heart-illustration-wrapper">
+                    <div class="sketch-groom"><i class="fa-solid fa-user-tie"></i></div>
+                    
+                    <svg class="heart-svg" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.6 0C21.1 0 18.8 1.2 17.3 3.1C15.8 1.2 13.5 0 11 0C4.9 0 0 4.9 0 11C0 18.2 15.3 27.5 16.5 28.2C16.8 28.4 17.1 28.5 17.3 28.5C17.6 28.5 17.9 28.4 18.1 28.2C19.3 27.5 34.6 18.2 34.6 11C34.6 4.9 29.7 0 23.6 0Z" fill="#8B0000"/>
+                    </svg>
+                    
+                    <div class="heart-inner-text">
+                        Abdur<br>&<br>Ayu
+                    </div>
+
+                    <div class="sketch-bride"><i class="fa-solid fa-user-nurse"></i></div>
+                </div>
+
+                <p style="font-size: 1.2rem; color: var(--maroon-sketch); margin-top: 10px;">
+                    Are getting married on
+                </p>
+                <p style="font-size: 1.8rem; font-weight: bold; color: var(--maroon-sketch);">11 . 04 . 2027</p>
+
+                <button class="btn-sketch" onclick="nextSlide(3)">
+                    Lihat Mempelai <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= SLIDE 3: MEMPELAI (ABDUR DI ATAS) ================= -->
+        <div class="slide" id="slide-3">
+            <div class="sketch-frame">
+                <p style="font-size: 0.85rem; color: #666; font-style: italic; margin-bottom: 5px;">Please turn on the music for the best experience</p>
+                <h2 style="font-size: 2.2rem; color: var(--maroon-sketch); margin-bottom: 15px;">The Bride and Groom</h2>
+                
+                <!-- Mempelai Pria (Abdur) -->
+                <div class="oval-mempelai-card">
+                    <div class="oval-frame">
+                        <img src="abdur.png" onerror="this.onerror=null; this.src='abdur.jpg';" alt="Abdur Rokhim Al Firdzos">
+                    </div>
+                    <div>
+                        <p style="font-size: 1.35rem; color: var(--maroon-sketch); font-weight: bold; line-height: 1.1;">ABDUR ROKHIM AL FIRDZOS, S.M.</p>
+                        <p style="font-size: 0.85rem; color: #555; margin-top: 4px;">Putra dari Bapak Walijo & Ibu Siti Jariyah</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; font-size: 1.8rem; color: var(--maroon-sketch); margin: 2px 0;">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <!-- Mempelai Wanita (Ayu) -->
+                <div class="oval-mempelai-card" style="flex-direction: row-reverse; text-align: right;">
+                    <div class="oval-frame">
+                        <img src="ayu.png" onerror="this.onerror=null; this.src='ayu.jpg';" alt="Ayu Uswatun Hasanah">
+                    </div>
+                    <div>
+                        <p style="font-size: 1.35rem; color: var(--maroon-sketch); font-weight: bold; line-height: 1.1;">Ayu Uswatun Hasanah, A.Md.Kes.</p>
+                        <p style="font-size: 0.85rem; color: #555; margin-top: 4px;">Putri dari Bapak Suripto, S.Pd. & Ibu Maryani</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btn-nav-container">
+                <button class="btn-sketch" onclick="prevSlide(2)"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                <button class="btn-sketch" onclick="nextSlide(4)">Ayat & Acara <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- ================= SLIDE 4: AYAT & ACARA NGUNDUH MANTU ================= -->
+        <div class="slide" id="slide-4">
+            <div class="sketch-frame" style="padding: 15px;">
+                <p style="font-size: 1rem; font-style: italic; line-height: 1.4;">
+                    "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya..."
+                </p>
+                <p style="font-weight: bold; font-size: 1.1rem; color: var(--maroon-sketch); margin-top: 4px;">(QS. Ar-Rum: 21)</p>
+            </div>
+
+            <div class="sketch-frame">
+                <!-- Card Acara: Ngunduh Mantu -->
+                <div class="event-card" style="margin-bottom: 0;">
+                    <h3 class="event-title"><i class="fa-solid fa-house-heart"></i> Ngunduh Mantu</h3>
+                    <p><b>Hari/Tanggal:</b> Minggu, 11 April 2027</p>
+                    <p><b>Waktu:</b> 10.00 WIB - Selesai</p>
+                    <p style="margin-top: 4px;"><b>Lokasi:</b> GOR Setjo Menggolo (Dusun Karangmojo RW 03, Desa Kecemen, Kec. Manisrenggo, Kab. Klaten)</p>
+                    
+                    <a href="https://maps.app.goo.gl/wvKpshwDacUWKrNy9" target="_blank" class="btn-sketch" style="font-size: 0.95rem; padding: 5px 14px; margin-top: 8px;">
+                        <i class="fa-solid fa-location-dot"></i> Petunjuk Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- Catatan Himbauan Khusus Keluarga Pria -->
+            <div class="sketch-frame" style="background: #FFF5F5; border-style: dashed;">
+                <p style="font-size: 0.9rem; color: var(--maroon-sketch); text-align: center;">
+                    <i class="fa-solid fa-circle-exclamation"></i><br>
+                    Mohon maaf, tanpa mengurangi rasa hormat, kami dari pihak keluarga pria hanya menerima silaturahmi dan sumbangan pada <b>HARI H Ngunduh Mantu (11 April 2027)</b>. Terima kasih.
+                </p>
+            </div>
+
+            <div class="btn-nav-container">
+                <button class="btn-sketch" onclick="prevSlide(3)"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+                <button class="btn-sketch" onclick="nextSlide(5)">RSVP & Hadiah <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- ================= SLIDE 5: RSVP, AMPLOP DIGITAL & CLOSING ================= -->
+        <div class="slide" id="slide-5">
+            <div class="sketch-frame">
+                <h2 style="font-size: 2rem; color: var(--maroon-sketch);">Konfirmasi Kehadiran</h2>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">Mohon isi konfirmasi kehadiran Anda di bawah ini:</p>
+
+                <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSc-EXAMPLE/formResponse" method="POST" target="_blank">
+                    <div class="form-group">
+                        <label>Nama Lengkap:</label>
+                        <input type="text" name="entry.123456789" class="form-control" placeholder="Nama Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kehadiran:</label>
+                        <select name="entry.987654321" class="form-control" required>
+                            <option value="Hadir">Hadir</option>
+                            <option value="Tidak Hadir">Tidak Hadir</option>
+                            <option value="Ragu-ragu">Ragu-ragu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ucapan & Doa:</label>
+                        <textarea name="entry.1122334455" class="form-control" rows="2" placeholder="Tuliskan ucapan selamat..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-sketch" style="font-size: 1rem; padding: 5px 15px; margin-top: 4px;">
+                        Kirim Konfirmasi <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="sketch-frame">
+                <h2 style="font-size: 2rem; color: var(--maroon-sketch);">Amplop Digital</h2>
+                <p style="font-size: 0.85rem; margin-bottom: 8px;">Doa Restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi hadiah, dapat disalurkan melalui:</p>
+
+                <div class="bank-box">
+                    <p><b>Bank BNI</b></p>
+                    <p>No. Rek: <b id="rek-bni">1729828611</b></p>
+                    <p>A/N: ABDUR ROKHIM AL FIRDZOS</p>
+                    <button class="btn-copy" onclick="copyToClipboard('1729828611', 'BNI')">
+                        <i class="fa-solid fa-copy"></i> Salin No. Rekening
+                    </button>
+                </div>
+
+                <div class="bank-box">
+                    <p><b>Bank Mandiri</b></p>
+                    <p>No. Rek: <b id="rek-mandiri">1380017172391</b></p>
+                    <p>A/N: AYU USWATUN HASANAH</p>
+                    <button class="btn-copy" onclick="copyToClipboard('1380017172391', 'Mandiri')">
+                        <i class="fa-solid fa-copy"></i> Salin No. Rekening
+                    </button>
+                </div>
+            </div>
+
+            <div class="sketch-frame" style="text-align: center;">
+                <div style="font-size: 1.8rem; color: var(--maroon-sketch); margin-bottom: 5px;">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <p style="font-size: 1rem;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+                <h2 style="font-size: 2.3rem; color: var(--maroon-sketch); margin-top: 8px;">Abdur & Ayu</h2>
+            </div>
+
+            <div class="btn-nav-container">
+                <button class="btn-sketch" onclick="prevSlide(4)"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Music Control -->
+    <div class="music-btn" onclick="toggleMusic()">
+        <i class="fa-solid fa-music" id="music-icon"></i>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function nextSlide(slideNumber) {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.getElementById('slide-' + slideNumber).classList.add('active');
+            window.scrollTo(0, 0);
+
+            if(slideNumber === 2 && !isPlaying) {
+                toggleMusic();
+            }
+        }
+
+        function prevSlide(slideNumber) {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.getElementById('slide-' + slideNumber).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function copyToClipboard(text, bankName) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert("Nomor rekening " + bankName + " (" + text + ") berhasil disalin!");
+            }, function(err) {
+                alert("Gagal menyalin nomor rekening.");
+            });
+        }
+
+        var music = document.getElementById("bg-music");
+        var musicIcon = document.getElementById("music-icon");
+        var isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.classList.remove("fa-pause");
+                musicIcon.classList.add("fa-music");
+            } else {
+                music.play();
+                musicIcon.classList.remove("fa-music");
+                musicIcon.classList.add("fa-pause");
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>
