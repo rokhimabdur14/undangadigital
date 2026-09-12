@@ -100,11 +100,6 @@
             box-shadow: 4px 4px 0px var(--maroon-sketch);
             position: relative;
             text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .sketch-frame:hover {
-            transform: translateY(-2px);
         }
 
         /* Envelope Cover Slide 1 */
@@ -139,52 +134,31 @@
             line-height: 1.1;
         }
 
-        /* Slide 2: Heart & Bride/Groom Sketch Illustration */
-        .heart-illustration-wrapper {
+        /* Slide 2 Custom Heart Holding Illustration */
+        .slide2-illustration {
             position: relative;
-            width: 260px;
-            height: 240px;
-            margin: 15px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 280px;
+            height: 300px;
+            margin: 10px auto;
         }
 
-        .heart-svg {
+        .couple-holding-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .heart-holding-text {
             position: absolute;
-            width: 210px;
-            height: 190px;
-            z-index: 1;
-            filter: drop-shadow(2px 2px 0px var(--maroon-sketch));
-        }
-
-        .heart-inner-text {
-            position: relative;
-            z-index: 3;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
             font-family: 'Caveat', cursive;
-            font-size: 2.3rem;
-            color: #FFFDF5;
-            line-height: 1;
+            font-size: 2.2rem;
+            color: var(--maroon-sketch);
+            line-height: 1.1;
             text-align: center;
             font-weight: bold;
-        }
-
-        .sketch-groom {
-            position: absolute;
-            left: 0;
-            bottom: 10px;
-            font-size: 3.5rem;
-            color: var(--maroon-sketch);
-            z-index: 2;
-        }
-
-        .sketch-bride {
-            position: absolute;
-            right: 0;
-            bottom: 10px;
-            font-size: 3.5rem;
-            color: var(--maroon-sketch);
-            z-index: 2;
+            width: 140px;
         }
 
         /* Slide 3: Oval Frame Layout */
@@ -205,11 +179,6 @@
             flex-shrink: 0;
             background: #FFF;
             box-shadow: 3px 3px 0px var(--maroon-sketch);
-            transition: transform 0.3s ease;
-        }
-
-        .oval-frame:hover {
-            transform: scale(1.04) rotate(-2deg);
         }
 
         .oval-frame img {
@@ -332,14 +301,13 @@
 <body>
 
     <div class="container">
-        <!-- Parallax Floating Sketch Elements -->
+        <!-- Parallax Background Elements -->
         <i class="fa-solid fa-heart parallax-doodle" style="top: 30px; left: 15px; font-size: 2.2rem; animation-delay: 0s;"></i>
         <i class="fa-solid fa-star parallax-doodle" style="top: 170px; right: 20px; font-size: 1.8rem; animation-delay: 1s;"></i>
         <i class="fa-solid fa-cloud parallax-doodle" style="top: 380px; left: 15px; font-size: 2.4rem; animation-delay: 0.5s;"></i>
         <i class="fa-solid fa-mug-hot parallax-doodle" style="top: 620px; right: 20px; font-size: 2rem; animation-delay: 1.5s;"></i>
-        <i class="fa-solid fa-leaf parallax-doodle" style="top: 850px; left: 20px; font-size: 2rem; animation-delay: 0.8s;"></i>
 
-        <!-- ================= SLIDE 1: COVER AMPLOP ================= -->
+        <!-- SLIDE 1: COVER AMPLOP -->
         <div class="slide active" id="slide-1">
             <div class="sketch-frame" style="padding-top: 35px; padding-bottom: 25px;">
                 <div style="font-size: 2rem; color: var(--maroon-sketch); margin-bottom: 5px;">
@@ -365,32 +333,56 @@
             </div>
         </div>
 
-        <!-- ================= SLIDE 2: WE'RE GETTING MARRIED ================= -->
+        <!-- SLIDE 2: WE'RE GETTING MARRIED (DESAIN SESUAI REFERENSI GAMBAR) -->
         <div class="slide" id="slide-2">
-            <div class="sketch-frame" style="padding: 25px 15px;">
-                <div style="font-size: 1.8rem; color: var(--maroon-sketch); margin-bottom: 5px;">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <div class="sketch-frame" style="padding: 20px 10px;">
+                <!-- Header Doodle -->
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 15px; color: var(--maroon-sketch);">
+                    <i class="fa-solid fa-wine-glass-sparkles" style="font-size: 1.6rem;"></i>
+                    <h2 style="font-size: 2.2rem; letter-spacing: 2px; margin: 0;">WE'RE GETTING MARRIED</h2>
+                    <i class="fa-solid fa-sparkles" style="font-size: 1.6rem;"></i>
                 </div>
-                <p style="font-size: 1.2rem; color: var(--maroon-sketch); text-transform: uppercase; letter-spacing: 2px;">We're Getting Married</p>
                 
-                <div class="heart-illustration-wrapper">
-                    <div class="sketch-groom"><i class="fa-solid fa-user-tie"></i></div>
-                    
-                    <svg class="heart-svg" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M23.6 0C21.1 0 18.8 1.2 17.3 3.1C15.8 1.2 13.5 0 11 0C4.9 0 0 4.9 0 11C0 18.2 15.3 27.5 16.5 28.2C16.8 28.4 17.1 28.5 17.3 28.5C17.6 28.5 17.9 28.4 18.1 28.2C19.3 27.5 34.6 18.2 34.6 11C34.6 4.9 29.7 0 23.6 0Z" fill="#8B0000"/>
+                <!-- Sketsa Pasangan Memegang Heart Besar -->
+                <div class="slide2-illustration">
+                    <svg class="couple-holding-svg" viewBox="0 0 280 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Extra Doodles -->
+                        <path d="M 25 150 Q 20 160 30 170" stroke="#8B0000" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M 255 150 Q 260 160 250 170" stroke="#8B0000" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M 30 40 L 40 50 M 40 40 L 30 50" stroke="#8B0000" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M 240 50 Q 250 30 260 50 Q 250 70 240 50 Z" fill="none" stroke="#8B0000" stroke-width="2"/>
+
+                        <!-- Pria (Kaki & Celana) -->
+                        <path d="M 95 180 L 95 260 M 115 180 L 115 260" stroke="#8B0000" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M 90 260 L 105 260 Q 105 255 95 255 Z M 110 260 L 125 260 Q 125 255 115 255 Z" fill="#8B0000" stroke="#8B0000" stroke-width="2"/>
+
+                        <!-- Wanita (Gaun Sketsa) -->
+                        <path d="M 160 175 Q 145 220 140 245 Q 175 255 210 245 Q 200 210 185 175 Z" fill="#FFFDF5" stroke="#8B0000" stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M 160 200 L 160 235 M 175 195 L 175 240 M 190 200 L 190 235" stroke="#8B0000" stroke-width="2" stroke-dasharray="3 3"/>
+                        <!-- Kaki Wanita -->
+                        <path d="M 160 245 L 160 260 M 190 245 L 190 260" stroke="#8B0000" stroke-width="2.5"/>
+                        <path d="M 155 260 Q 165 260 168 255 M 185 260 Q 195 260 198 255" stroke="#8B0000" stroke-width="2.5"/>
+
+                        <!-- Hati Besar yang Dipegang -->
+                        <path d="M 140 45 C 100 10 50 60 140 175 C 230 60 180 10 140 45 Z" fill="#FFFDF5" stroke="#8B0000" stroke-width="4" stroke-linejoin="round"/>
+
+                        <!-- Tangan Memegang Hati -->
+                        <!-- Tangan Pria -->
+                        <path d="M 62 125 C 50 130 55 145 68 140" stroke="#8B0000" stroke-width="3" stroke-linecap="round"/>
+                        <!-- Tangan Wanita -->
+                        <path d="M 218 125 C 230 130 225 145 212 140" stroke="#8B0000" stroke-width="3" stroke-linecap="round"/>
                     </svg>
-                    
-                    <div class="heart-inner-text">
+
+                    <!-- Teks di Dalam Hati -->
+                    <div class="heart-holding-text">
                         Ayu<br>&<br>Abdur
                     </div>
-
-                    <div class="sketch-bride"><i class="fa-solid fa-user-nurse"></i></div>
                 </div>
 
-                <p style="font-size: 1.2rem; color: var(--maroon-sketch); margin-top: 10px;">
+                <p style="font-size: 1.3rem; color: var(--maroon-sketch); margin-top: 5px;">
                     Are getting married on
                 </p>
-                <p style="font-size: 1.8rem; font-weight: bold; color: var(--maroon-sketch);">04 . 04 . 2027</p>
+                <p style="font-size: 1.9rem; font-weight: bold; color: var(--maroon-sketch); letter-spacing: 2px;">04 . 04 . 2027</p>
 
                 <button class="btn-sketch" onclick="nextSlide(3)">
                     Lihat Mempelai <i class="fa-solid fa-arrow-right"></i>
@@ -398,7 +390,7 @@
             </div>
         </div>
 
-        <!-- ================= SLIDE 3: MEMPELAI ================= -->
+        <!-- SLIDE 3: MEMPELAI -->
         <div class="slide" id="slide-3">
             <div class="sketch-frame">
                 <p style="font-size: 0.85rem; color: #666; font-style: italic; margin-bottom: 5px;">Please turn on the music for the best experience</p>
@@ -438,7 +430,7 @@
             </div>
         </div>
 
-        <!-- ================= SLIDE 4: AYAT & RANGKAIAN ACARA (AKAD & RESEPSI) ================= -->
+        <!-- SLIDE 4: AYAT & RANGKAIAN ACARA -->
         <div class="slide" id="slide-4">
             <div class="sketch-frame" style="padding: 15px;">
                 <p style="font-size: 1rem; font-style: italic; line-height: 1.4;">
@@ -448,7 +440,6 @@
             </div>
 
             <div class="sketch-frame">
-                <!-- Card 1: Akad Nikah -->
                 <div class="event-card">
                     <h3 class="event-title"><i class="fa-solid fa-ring"></i> Akad Nikah</h3>
                     <p><b>Hari/Tanggal:</b> Minggu, 4 April 2027</p>
@@ -456,7 +447,6 @@
                     <p style="margin-top: 4px;"><b>Lokasi:</b> Dusun Tempel, Desa Borangan, Kec. Manisrenggo, Kab. Klaten</p>
                 </div>
 
-                <!-- Card 2: Resepsi Pernikahan -->
                 <div class="event-card" style="margin-bottom: 0;">
                     <h3 class="event-title"><i class="fa-solid fa-champagne-glasses"></i> Resepsi Pernikahan</h3>
                     <p><b>Hari/Tanggal:</b> Minggu, 4 April 2027</p>
@@ -475,7 +465,7 @@
             </div>
         </div>
 
-        <!-- ================= SLIDE 5: RSVP, AMPLOP DIGITAL & CLOSING ================= -->
+        <!-- SLIDE 5: RSVP & HADIAH -->
         <div class="slide" id="slide-5">
             <div class="sketch-frame">
                 <h2 style="font-size: 2rem; color: var(--maroon-sketch);">Konfirmasi Kehadiran</h2>
