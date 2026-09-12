@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Ayu & Abdur</title>
+    <title>Undangan Akad & Resepsi - Ayu & Abdur</title>
     <!-- Google Fonts Handwritten & Sketch Style -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,12 +44,29 @@
             border-right: 2px dashed var(--maroon-sketch);
             padding-bottom: 40px;
             position: relative;
+            perspective: 1000px;
         }
 
         h1, h2, h3 {
             font-family: 'Caveat', cursive;
         }
 
+        /* Floating Parallax Background Elements */
+        .parallax-doodle {
+            position: absolute;
+            color: var(--maroon-sketch);
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 1;
+            animation: float 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(8deg); }
+        }
+
+        /* Slide Control with Parallax Effect */
         .slide {
             display: none;
             padding: 20px 12px;
@@ -59,14 +76,21 @@
 
         .slide.active {
             display: block;
-            animation: slideIn 0.5s ease-out forwards;
+            animation: slideParallaxIn 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideParallaxIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
+        /* Frame Style */
         .sketch-frame {
             border: 3px solid var(--maroon-sketch);
             border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -76,8 +100,14 @@
             box-shadow: 4px 4px 0px var(--maroon-sketch);
             position: relative;
             text-align: center;
+            transition: transform 0.3s ease;
         }
 
+        .sketch-frame:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Envelope Cover Slide 1 */
         .envelope-box {
             width: 200px;
             height: 150px;
@@ -109,6 +139,7 @@
             line-height: 1.1;
         }
 
+        /* Slide 2: Heart & Bride/Groom Sketch Illustration */
         .heart-illustration-wrapper {
             position: relative;
             width: 260px;
@@ -124,6 +155,7 @@
             width: 210px;
             height: 190px;
             z-index: 1;
+            filter: drop-shadow(2px 2px 0px var(--maroon-sketch));
         }
 
         .heart-inner-text {
@@ -155,6 +187,7 @@
             z-index: 2;
         }
 
+        /* Slide 3: Oval Frame Layout */
         .oval-mempelai-card {
             display: flex;
             align-items: center;
@@ -172,6 +205,11 @@
             flex-shrink: 0;
             background: #FFF;
             box-shadow: 3px 3px 0px var(--maroon-sketch);
+            transition: transform 0.3s ease;
+        }
+
+        .oval-frame:hover {
+            transform: scale(1.04) rotate(-2deg);
         }
 
         .oval-frame img {
@@ -181,6 +219,7 @@
             object-position: top center;
         }
 
+        /* Buttons */
         .btn-sketch {
             display: inline-block;
             background: #FFFDF5;
@@ -210,11 +249,12 @@
             padding: 0 5px;
         }
 
+        /* Event & Forms */
         .event-card {
             border: 2px solid var(--maroon-sketch);
             border-radius: 15px 225px 15px 255px/255px 15px 225px 15px;
-            padding: 12px;
-            margin-bottom: 12px;
+            padding: 14px;
+            margin-bottom: 14px;
             background: #FFFDF8;
             text-align: left;
         }
@@ -292,10 +332,20 @@
 <body>
 
     <div class="container">
+        <!-- Parallax Floating Sketch Elements -->
+        <i class="fa-solid fa-heart parallax-doodle" style="top: 30px; left: 15px; font-size: 2.2rem; animation-delay: 0s;"></i>
+        <i class="fa-solid fa-star parallax-doodle" style="top: 170px; right: 20px; font-size: 1.8rem; animation-delay: 1s;"></i>
+        <i class="fa-solid fa-cloud parallax-doodle" style="top: 380px; left: 15px; font-size: 2.4rem; animation-delay: 0.5s;"></i>
+        <i class="fa-solid fa-mug-hot parallax-doodle" style="top: 620px; right: 20px; font-size: 2rem; animation-delay: 1.5s;"></i>
+        <i class="fa-solid fa-leaf parallax-doodle" style="top: 850px; left: 20px; font-size: 2rem; animation-delay: 0.8s;"></i>
 
-        <!-- SLIDE 1: COVER -->
+        <!-- ================= SLIDE 1: COVER AMPLOP ================= -->
         <div class="slide active" id="slide-1">
             <div class="sketch-frame" style="padding-top: 35px; padding-bottom: 25px;">
+                <div style="font-size: 2rem; color: var(--maroon-sketch); margin-bottom: 5px;">
+                    <i class="fa-solid fa-ribbon"></i>
+                </div>
+
                 <div class="envelope-box">
                     <div class="envelope-flap"></div>
                     <div class="envelope-text">
@@ -310,14 +360,17 @@
                 <h3 style="font-size: 1.8rem; color: var(--maroon-sketch); margin-bottom: 15px;">Nama Tamu</h3>
 
                 <button class="btn-sketch" onclick="nextSlide(2)">
-                    <i class="fa-solid fa-envelope"></i> Open Invitation
+                    <i class="fa-solid fa-envelope-open"></i> Open Invitation
                 </button>
             </div>
         </div>
 
-        <!-- SLIDE 2: WE'RE GETTING MARRIED -->
+        <!-- ================= SLIDE 2: WE'RE GETTING MARRIED ================= -->
         <div class="slide" id="slide-2">
             <div class="sketch-frame" style="padding: 25px 15px;">
+                <div style="font-size: 1.8rem; color: var(--maroon-sketch); margin-bottom: 5px;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
                 <p style="font-size: 1.2rem; color: var(--maroon-sketch); text-transform: uppercase; letter-spacing: 2px;">We're Getting Married</p>
                 
                 <div class="heart-illustration-wrapper">
@@ -345,7 +398,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 3: MEMPELAI (MEMANGGIL FOTO SENSUS GITHUB) -->
+        <!-- ================= SLIDE 3: MEMPELAI ================= -->
         <div class="slide" id="slide-3">
             <div class="sketch-frame">
                 <p style="font-size: 0.85rem; color: #666; font-style: italic; margin-bottom: 5px;">Please turn on the music for the best experience</p>
@@ -362,7 +415,9 @@
                     </div>
                 </div>
 
-                <div style="text-align: center; font-size: 1.6rem; color: var(--maroon-sketch); margin: 2px 0;">&</div>
+                <div style="text-align: center; font-size: 1.8rem; color: var(--maroon-sketch); margin: 2px 0;">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
 
                 <!-- Mempelai Pria (Abdur) -->
                 <div class="oval-mempelai-card" style="flex-direction: row-reverse; text-align: right;">
@@ -383,7 +438,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 4: AYAT & RANGKAIAN ACARA -->
+        <!-- ================= SLIDE 4: AYAT & RANGKAIAN ACARA (AKAD & RESEPSI) ================= -->
         <div class="slide" id="slide-4">
             <div class="sketch-frame" style="padding: 15px;">
                 <p style="font-size: 1rem; font-style: italic; line-height: 1.4;">
@@ -393,35 +448,25 @@
             </div>
 
             <div class="sketch-frame">
+                <!-- Card 1: Akad Nikah -->
                 <div class="event-card">
-                    <h3 class="event-title"><i class="fa-solid fa-ring"></i> Boyong Manten</h3>
+                    <h3 class="event-title"><i class="fa-solid fa-ring"></i> Akad Nikah</h3>
                     <p><b>Hari/Tanggal:</b> Minggu, 4 April 2027</p>
-                    <p><b>Akad Nikah:</b> 08.00 WIB</p>
-                    <p><b>Resepsi:</b> 10.00 WIB</p>
+                    <p><b>Waktu:</b> 08.00 WIB</p>
+                    <p style="margin-top: 4px;"><b>Lokasi:</b> Dusun Tempel, Desa Borangan, Kec. Manisrenggo, Kab. Klaten</p>
+                </div>
+
+                <!-- Card 2: Resepsi Pernikahan -->
+                <div class="event-card" style="margin-bottom: 0;">
+                    <h3 class="event-title"><i class="fa-solid fa-champagne-glasses"></i> Resepsi Pernikahan</h3>
+                    <p><b>Hari/Tanggal:</b> Minggu, 4 April 2027</p>
+                    <p><b>Waktu:</b> 10.00 WIB - Selesai</p>
                     <p style="margin-top: 4px;"><b>Lokasi:</b> Dusun Tempel, Desa Borangan, Kec. Manisrenggo, Kab. Klaten</p>
                     
-                    <a href="https://maps.app.goo.gl/uyVQ7JYcQEYCk7EB7" target="_blank" class="btn-sketch" style="font-size: 0.95rem; padding: 4px 12px;">
-                        <i class="fa-solid fa-location-dot"></i> Google Maps
+                    <a href="https://maps.app.goo.gl/uyVQ7JYcQEYCk7EB7" target="_blank" class="btn-sketch" style="font-size: 0.95rem; padding: 5px 14px; margin-top: 8px;">
+                        <i class="fa-solid fa-location-dot"></i> Petunjuk Google Maps
                     </a>
                 </div>
-
-                <div class="event-card" style="margin-bottom: 0;">
-                    <h3 class="event-title"><i class="fa-solid fa-house-heart"></i> Ngunduh Mantu</h3>
-                    <p><b>Hari/Tanggal:</b> Minggu, 11 April 2027</p>
-                    <p><b>Waktu:</b> 10.00 WIB</p>
-                    <p style="margin-top: 4px;"><b>Lokasi:</b> GOR Setjo Menggolo (Dusun Karangmojo RW 03, Desa Kecemen, Kec. Manisrenggo, Kab. Klaten)</p>
-                    
-                    <a href="https://maps.app.goo.gl/wvKpshwDacUWKrNy9" target="_blank" class="btn-sketch" style="font-size: 0.95rem; padding: 4px 12px;">
-                        <i class="fa-solid fa-location-dot"></i> Google Maps
-                    </a>
-                </div>
-            </div>
-
-            <div class="sketch-frame" style="background: #FFF5F5; border-style: dashed;">
-                <p style="font-size: 0.9rem; color: var(--maroon-sketch); text-align: center;">
-                    <i class="fa-solid fa-circle-exclamation"></i><br>
-                    Mohon maaf, tanpa mengurangi rasa hormat, kami dari pihak keluarga pria hanya menerima silaturahmi dan sumbangan pada <b>HARI H Ngunduh Mantu (11 April 2027)</b>. Terima kasih.
-                </p>
             </div>
 
             <div class="btn-nav-container">
@@ -430,7 +475,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 5: RSVP & HADIAH -->
+        <!-- ================= SLIDE 5: RSVP, AMPLOP DIGITAL & CLOSING ================= -->
         <div class="slide" id="slide-5">
             <div class="sketch-frame">
                 <h2 style="font-size: 2rem; color: var(--maroon-sketch);">Konfirmasi Kehadiran</h2>
@@ -486,6 +531,9 @@
             </div>
 
             <div class="sketch-frame" style="text-align: center;">
+                <div style="font-size: 1.8rem; color: var(--maroon-sketch); margin-bottom: 5px;">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
                 <p style="font-size: 1rem;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
                 <h2 style="font-size: 2.3rem; color: var(--maroon-sketch); margin-top: 8px;">Ayu & Abdur</h2>
             </div>
