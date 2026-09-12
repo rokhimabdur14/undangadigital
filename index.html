@@ -36,7 +36,6 @@
             color: var(--text-dark);
             font-size: 1.15rem;
             line-height: 1.6;
-            /* Editorial Paper Texture + Polka Overlay */
             background-image: 
                 url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.04"/%3E%3C/svg%3E'),
                 radial-gradient(var(--maroon-light) 0.5px, transparent 0.6px);
@@ -105,7 +104,6 @@
             justify-content: center;
         }
 
-        /* Staggered Content Animation inside Active Slide */
         .slide.active .animate-item {
             opacity: 0;
             animation: cinematicReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -120,7 +118,6 @@
             100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
-        /* Refined Premium Frame (Glassmorphism + Sketch) */
         .sketch-frame {
             border: 2px solid var(--maroon-sketch);
             border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -135,7 +132,6 @@
             width: 100%;
         }
 
-        /* Slide 1 Envelope */
         .envelope-box {
             width: 200px;
             height: 145px;
@@ -169,7 +165,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Minimalist Continuous Line Art (Slide 2) */
         .slide2-illustration {
             position: relative;
             width: 260px;
@@ -192,7 +187,6 @@
             z-index: 5;
         }
 
-        /* Drawing Animation for SVG Paths */
         .draw-line {
             stroke-dasharray: 1200;
             stroke-dashoffset: 1200;
@@ -206,7 +200,21 @@
             to { stroke-dashoffset: 0; }
         }
 
-        /* Slide 3 Mempelai Oval */
+        .slide3-content-wrapper {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .connecting-line-svg {
+            position: absolute;
+            top: 75px;
+            left: 0;
+            width: 100%;
+            height: 230px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
         .oval-mempelai-card {
             display: flex;
             align-items: center;
@@ -246,7 +254,6 @@
             filter: contrast(1.05) sepia(0.1);
         }
 
-        /* Buttons Editorial Pulse */
         .btn-sketch {
             display: inline-flex;
             align-items: center;
@@ -295,7 +302,6 @@
             width: 100%;
         }
 
-        /* Event Cards */
         .event-card {
             border: 2px solid var(--maroon-sketch);
             border-radius: 12px 255px 12px 255px/255px 12px 225px 12px;
@@ -320,7 +326,6 @@
             text-align: center;
         }
 
-        /* Form Inputs */
         .form-control {
             width: 100%;
             padding: 10px 12px;
@@ -425,22 +430,15 @@
                 </div>
                 
                 <div class="slide2-illustration animate-item delay-2">
-                    <!-- Elegant Minimalist Continuous Line Art -->
                     <svg viewBox="0 0 260 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Left Decoration -->
                         <path class="draw-line" d="M 20 120 Q 35 110 50 120" stroke="#8B1E1E" stroke-width="2.5" stroke-linecap="round"/>
                         <circle cx="35" cy="100" r="3" fill="#8B1E1E"/>
-                        <!-- Right Decoration -->
                         <path class="draw-line" d="M 240 120 Q 225 110 210 120" stroke="#8B1E1E" stroke-width="2.5" stroke-linecap="round"/>
                         <circle cx="225" cy="100" r="3" fill="#8B1E1E"/>
                         
-                        <!-- The Big Center Heart -->
                         <path class="draw-line" d="M 130 50 C 90 0 30 50 130 190 C 230 50 170 0 130 50 Z" fill="rgba(255, 253, 245, 0.9)" stroke="#8B1E1E" stroke-width="3.5" stroke-linejoin="round"/>
                         
-                        <!-- Minimalist Male Silhouette (Left) -->
                         <path class="draw-line" d="M 130 190 L 110 240 M 130 190 L 100 230 M 70 240 C 70 210 90 190 100 190" stroke="#8B1E1E" stroke-width="2.5" stroke-linecap="round"/>
-                        
-                        <!-- Minimalist Female Silhouette (Right) -->
                         <path class="draw-line" d="M 130 190 L 150 240 M 130 190 L 160 230 M 190 240 C 190 205 170 190 160 190" stroke="#8B1E1E" stroke-width="2.5" stroke-linecap="round"/>
                     </svg>
 
@@ -472,11 +470,9 @@
                 <h2 class="animate-item delay-1" style="font-size: 2.4rem; color: var(--maroon-sketch); margin-bottom: 15px;">The Bride & Groom</h2>
                 
                 <div class="slide3-content-wrapper">
-                    <!-- Animated Connection Line -->
-                    <svg class="connecting-line-svg" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path class="draw-line" d="M 70 20 C 65 70, 110 120, 160 90 C 210 60, 245 110, 245 160" stroke="#8B1E1E" stroke-width="3" stroke-linecap="round" fill="none"/>
-                        <!-- Center Heart Icon -->
-                        <path class="draw-line" d="M 160 82 C 153 73, 138 85, 160 102 C 182 85, 167 73, 160 82 Z" fill="#FFFDF5" stroke="#8B1E1E" stroke-width="2.5" stroke-linejoin="round"/>
+                    <svg class="connecting-line-svg" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="draw-line" d="M 80 20 C 70 100, 110 120, 160 120 C 210 120, 250 140, 240 220" stroke="#8B1E1E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                        <path class="draw-line" d="M 160 112 C 153 103, 138 115, 160 132 C 182 115, 167 103, 160 112 Z" fill="#FFFDF5" stroke="#8B1E1E" stroke-width="2" stroke-linejoin="round"/>
                     </svg>
 
                     <!-- Mempelai Wanita (Ayu) -->
@@ -498,7 +494,7 @@
                             <img src="abdur.png" onerror="this.onerror=null; this.src='abdur.jpg';" alt="Abdur Rokhim Al Firdzos">
                         </div>
                         <div>
-                            <p style="font-size: 1.4rem; color: var(--maroon-sketch); font-weight: bold; line-height: 1.1;">ABDUR ROKHIM AL FIRDZOS, S.M.</p>
+                            <p style="font-size: 1.4rem; color: var(--maroon-sketch); font-weight: bold; line-height: 1.1;">Abdur Rokhim Al Firdzos, S.M.</p>
                             <p style="font-size: 0.9rem; color: #555; margin-top: 5px;">Putra dari Bapak Walijo & Ibu Siti Jariyah</p>
                         </div>
                     </div>
@@ -552,7 +548,7 @@
             </div>
         </div>
 
-        <!-- ================= SLIDE 5: RSVP & HADIAH ================= -->
+        <!-- ================= SLIDE 5: RSVP, AMPLOP DIGITAL & PENUTUP ================= -->
         <div class="slide" id="slide-5">
             <div class="sketch-frame animate-item delay-1" style="padding: 20px 15px;">
                 <i class="fa-solid fa-envelope-open-text edge-doodle" style="top: 15px; right: 15px; font-size: 1.3rem;"></i>
@@ -561,20 +557,20 @@
                 <p style="font-size: 0.95rem; margin-bottom: 15px; color: #555;">Mohon isi form kehadiran Anda di bawah ini:</p>
 
                 <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSc-EXAMPLE/formResponse" method="POST" target="_blank">
-                    <div class="form-group">
-                        <label>Nama Lengkap:</label>
+                    <div class="form-group" style="text-align: left; margin-bottom: 8px;">
+                        <label style="display: block; font-weight: bold; color: var(--maroon-sketch); margin-bottom: 2px;">Nama Lengkap:</label>
                         <input type="text" name="entry.123456789" class="form-control" placeholder="Tulis nama Anda..." required>
                     </div>
-                    <div class="form-group">
-                        <label>Kehadiran:</label>
+                    <div class="form-group" style="text-align: left; margin-bottom: 8px;">
+                        <label style="display: block; font-weight: bold; color: var(--maroon-sketch); margin-bottom: 2px;">Kehadiran:</label>
                         <select name="entry.987654321" class="form-control" required>
                             <option value="Hadir">Insya Allah Hadir</option>
                             <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
                             <option value="Ragu-ragu">Masih Ragu-ragu</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Ucapan & Doa:</label>
+                    <div class="form-group" style="text-align: left; margin-bottom: 8px;">
+                        <label style="display: block; font-weight: bold; color: var(--maroon-sketch); margin-bottom: 2px;">Ucapan & Doa:</label>
                         <textarea name="entry.1122334455" class="form-control" rows="2" placeholder="Berikan ucapan terbaik Anda..."></textarea>
                     </div>
                     <button type="submit" class="btn-sketch" style="width: 100%; margin-top: 10px;">
@@ -590,8 +586,8 @@
                 <div class="bank-box">
                     <p style="font-size: 1.1rem;"><b>Bank Mandiri</b></p>
                     <p style="font-family: 'Caveat', cursive; font-size: 1.5rem; color: var(--maroon-sketch); font-weight: bold;" id="rek-mandiri">1380017172391</p>
-                    <p style="font-size: 0.9rem; margin-bottom: 8px;">A/N: AYU USWATUN HASANAH</p>
-                    <button class="btn-copy" onclick="copyToClipboard('1380017172391', 'Mandiri')">
+                    <p style="font-size: 0.9rem; margin-bottom: 8px;">A/N: Ayu Uswatun Hasanah</p>
+                    <button class="btn-sketch" style="font-size: 0.95rem; padding: 4px 12px; margin-top: 4px;" onclick="copyToClipboard('1380017172391', 'Mandiri')">
                         <i class="fa-solid fa-copy"></i> Salin Rekening
                     </button>
                 </div>
@@ -599,13 +595,14 @@
                 <div class="bank-box">
                     <p style="font-size: 1.1rem;"><b>Bank BNI</b></p>
                     <p style="font-family: 'Caveat', cursive; font-size: 1.5rem; color: var(--maroon-sketch); font-weight: bold;" id="rek-bni">1729828611</p>
-                    <p style="font-size: 0.9rem; margin-bottom: 8px;">A/N: ABDUR ROKHIM AL FIRDZOS</p>
-                    <button class="btn-copy" onclick="copyToClipboard('1729828611', 'BNI')">
+                    <p style="font-size: 0.9rem; margin-bottom: 8px;">A/N: Abdur Rokhim Al Firdzos</p>
+                    <button class="btn-sketch" style="font-size: 0.95rem; padding: 4px 12px; margin-top: 4px;" onclick="copyToClipboard('1729828611', 'BNI')">
                         <i class="fa-solid fa-copy"></i> Salin Rekening
                     </button>
                 </div>
             </div>
 
+            <!-- KOTAK UCAPAN PENUTUP (DIPINDAHKAN KE SLIDE TERAKHIR PALING BAWAH) -->
             <div class="sketch-frame animate-item delay-3" style="text-align: center; padding: 25px 15px;">
                 <div style="font-size: 2rem; color: var(--maroon-sketch); margin-bottom: 10px; filter: drop-shadow(2px 2px 0px rgba(139,30,30,0.2));">
                     <i class="fa-solid fa-heart"></i>
@@ -621,29 +618,24 @@
 
     </div>
 
-    <!-- Controls Musik -->
+    <!-- Controls Musik (Christina Perri - A Thousand Years) -->
     <div class="music-btn" onclick="toggleMusic()">
         <i class="fa-solid fa-music" id="music-icon"></i>
     </div>
 
     <audio id="bg-music" loop>
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/10/14/audio_9939f792cb.mp3?filename=a-thousand-years-122944.mp3" type="audio/mpeg">
     </audio>
 
     <script>
         function nextSlide(slideNumber) {
-            // Remove active classes
             document.querySelectorAll('.slide').forEach(slide => {
                 slide.classList.remove('active');
             });
             
-            // Re-trigger CSS animations by forcing a reflow
             void document.body.offsetWidth;
             
-            // Add active class to new slide
             document.getElementById('slide-' + slideNumber).classList.add('active');
-            
-            // Smooth scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
             if(slideNumber === 2 && !isPlaying) {
@@ -653,7 +645,7 @@
 
         function prevSlide(slideNumber) {
             document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
-            void document.body.offsetWidth; // Force Reflow
+            void document.body.offsetWidth;
             document.getElementById('slide-' + slideNumber).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
